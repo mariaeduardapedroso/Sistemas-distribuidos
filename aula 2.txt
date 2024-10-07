@@ -1,0 +1,79 @@
+ps
+ps aux
+top
+ps aux | grep bash
+
+
+
+gedit &
+nano & (não usa ambiene grafico)
+fg
+
+
+
+ps aux | grep nano
+
+
+ls /proc | less
+ls /proc/5188
+
+cat /proc/meminfo
+cat /proc/cpuinfo
+
+history
+
+htop
+
+
+a2150336@pxe-ubuntu:~$ ps aux | grep nano
+a2150336    5188  0.0  0.0   6988  3520 pts/0    S+   17:05   0:00 nano
+a2150336    5451  0.0  0.0   6568  2080 pts/1    S+   17:22   0:00 grep nano
+a2150336@pxe-ubuntu:~$ cat /proc/5188/status
+
+a2150336@pxe-ubuntu:~$ cat /proc/5188/limits
+Limit                     Soft Limit           Hard Limit           Units     
+Max cpu time              unlimited            unlimited            seconds   
+Max file size             unlimited            unlimited            bytes     
+Max data size             unlimited            unlimited            bytes     
+Max stack size            8388608              unlimited            bytes     
+Max core file size        0                    unlimited            bytes     
+Max resident set          unlimited            unlimited            bytes     
+Max processes             62406                62406                processes 
+Max open files            1024                 1048576              files     
+Max locked memory         2055057408           2055057408           bytes     
+Max address space         unlimited            unlimited            bytes     
+Max file locks            unlimited            unlimited            locks     
+Max pending signals       62406                62406                signals   
+Max msgqueue size         819200               819200               bytes     
+Max nice priority         0                    0                    
+Max realtime priority     0                    0                    
+Max realtime timeout      unlimited            unlimited            us  
+
+a2150336@pxe-ubuntu:~$ cat /proc/sys/kernel/pid_max 
+4194304
+
+a2150336@pxe-ubuntu:~$ cat /proc/sys/kernel/hostname
+pxe-ubuntu
+
+a2150336@pxe-ubuntu:~$ cat /etc/host
+cat: /etc/host: Arquivo ou diretório inexistente
+a2150336@pxe-ubuntu:~$ cat /etc/hosts
+127.0.0.1 localhost pxe-ubuntu
+127.0.1.1 administrador
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+a2150336@pxe-ubuntu:~$ ping pxe-ubuntu
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.024 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.047 ms
+
+
+
+
