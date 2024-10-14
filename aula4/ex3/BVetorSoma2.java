@@ -1,46 +1,17 @@
-//Soma de vetor nao sincronizado
+class BVetorSoma2 {
+	private int sum;
+	int somarVetor(int nums[]) {
+		sum = 0; 
 
-/**
- * TODO1: BPrincipal2: instancie 2 (duas) threads.
- * 
- * TODO2: BPrincipal2: insira o trecho de codigo:
- *           't1.thrd.join();' 
- *        no bloco try-catch 
- * 
- * TODO3: BThread2: define que a classe implemente a interface Runnable.
- * 
- * TODO4: BThread2: insira o trecho de codigo no construtor:
- *          'thrd.start();'
- * 
- */
-
-class BPrincipal2 { 
-	public static void main(String args[]) {
-		
-		int a[] = {1, 2, 3, 4, 5};
-		
-		int TAM = 20;
-		BThread2 [] lista = new BThread2[TAM];
-		
-		for (int i=0;i<TAM;i++){
-		    lista[i] = new BThread2("Filho #"+i, a); 
-		}
-		
-		
-		//BThread2 t1 = new BThread2("Filho #1", a); 
-		//TODO1
-		//BThread2 t2 = new BThread2("Filho #2", a); 
-		try { 
-			//TODO2
-			
-			//t1.thrd.join();
-			//t2.thrd.join();
-			for(BThread2 i : lista ){
-			    i.thrd.join();
+		for(int i=0; i<nums.length; i++) { 
+			sum += nums[i]; 
+			System.out.println("Total da " + Thread.currentThread().getName() + " eh " + sum);
+			/*try { 
+				Thread.sleep(10); 
 			}
-			
-		} catch(InterruptedException exc) { 
-			System.out.println("Thread principal interrompida.");
-		}
-	}
-}
+			catch(InterruptedException exc) {
+				System.out.println("Thread interrompida.");
+			}*/ 
+		} 
+		return sum;
+	}}
