@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <!-- Título da página -->
+        <title>Agendamento de Salas</title>
+
+        <!-- Inclusão do arquivo CSS -->
+        <link rel="stylesheet" href="#{resource['css/style_agendamentos.css']}" />
+    </h:head>
+    <h:body>
+        <!-- Navegação com logo, nome da aplicação e botão para o menu principal -->
+        <nav class="navbar">
+            <div class="logo">
+                <!-- Local para logotipo (imagem) -->
+                <img src="#{resource['images/logo.png']}" alt="Logotipo" />
+            </div>
+            <div class="app-name">Reserva de Salas</div>
+            <div class="menu-button">
+                <h:button value="Menu Principal" outcome="index" styleClass="menu-button-style" />
+            </div>
+        </nav>
+
+        <!-- Formulário principal -->
+        <h:form>
+            <!-- Título do formulário -->
+            <h1 class="title">Agendamento de Salas</h1>
+
+            <!-- Campo: Número da Sala -->
+            <div class="form-group">
+                <h:outputLabel for="numeroSala" value="Número da Sala:" />
+                <h:inputText id="numeroSala" value="#{agendarSalasBean.numeroSala}" 
+                             required="true" 
+                             requiredMessage="O número da sala é obrigatório." 
+                             styleClass="input-field" />
+                <h:message for="numeroSala" styleClass="error-message" />
+            </div>
+
+            <!-- Campo: Nome do Cliente -->
+            <div class="form-group">
+                <h:outputLabel for="cliente" value="Nome do Cliente:" />
+                <h:inputText id="cliente" value="#{agendarSalasBean.cliente}" 
+                             required="true" 
+                             styleClass="input-field" />
+                <h:message for="cliente" styleClass="error-message" />
+            </div>
+
+            <!-- Campo: Dia do Mês -->
+            <div class="form-group">
+                <h:outputLabel for="dataHora" value="Dia do Mês:" />
+                <h:inputText id="dataHora" value="#{agendarSalasBean.dataHora}" 
+                             required="true" 
+                             styleClass="input-field" />
+                <h:message for="dataHora" styleClass="error-message" />
+            </div>
+
+            <!-- Botão de submissão -->
+            <div class="form-group">
+                <h:commandButton value="Reservar" action="#{agendarSalasBean.reservar()}" 
+                                 styleClass="btn btn-primary">
+                    <f:ajax execute="@form" render="messages @form" />
+                </h:commandButton>
+            </div>
+
+            <!-- Mensagens gerais -->
+            <h:messages styleClass="success-messages" layout="list" />
+        </h:form>
+    </h:body>
+</html>

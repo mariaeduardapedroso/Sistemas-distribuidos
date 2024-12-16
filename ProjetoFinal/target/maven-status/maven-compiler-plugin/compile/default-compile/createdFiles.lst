@@ -1,0 +1,11 @@
+br\ejb\ManualLock.class
+br\jsf\Reserva.class
+br\JakartaRestConfiguration.class
+br\jsf\Sala.class
+br\ejb\AgendamentoService.class
+br\jsf\AgendamentoWebService.class
+br\ejb\LockManager.class
+br\ejb\AgendarSalasBean.class
+br\ejb\ListarSalasBean.class
+br\resources\JakartaEE10Resource.class
+br\ejb\AgendamentoServiceImpl.class

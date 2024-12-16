@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Lista de Salas Reservadas</title>
+        <link rel="stylesheet" href="#{resource['css/style_listar.css']}" />
+    </h:head>
+    <h:body>
+        <!-- Navegação -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="#{resource['images/logo.png']}" alt="Logotipo" />
+            </div>
+            <div class="app-name">Reserva de Salas</div>
+            <div class="menu-button">
+                <h:button value="Menu Principal" outcome="index" styleClass="menu-button-style" />
+            </div>
+        </nav>
+
+        <!-- Título -->
+        <h1 class="title">Lista de Salas Reservadas</h1>
+
+        <!-- Tabela centralizada com as reservas -->
+        <div class="tabela-container">
+            <h:form>
+                <h:dataTable value="#{listarSalasBean.getReservas()}" var="reserva" styleClass="tabela">
+                    <h:column>
+                        <f:facet name="header">Número da Sala</f:facet>
+                        #{reserva.salaId}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Usuário</f:facet>
+                        #{reserva.usuario}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Data do Mês</f:facet>
+                        #{reserva.dataHora}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ação</f:facet>
+                        <h:commandButton value="Desreservar" action="#{agendarSalasBean.desreservar(reserva)}" 
+                                         styleClass="desreservar-button">
+                            <f:param name="reservaId" value="#{reserva.salaId}" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+    </h:body>
+</html>
